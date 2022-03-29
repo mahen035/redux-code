@@ -4,38 +4,37 @@ const initialState ={
 
 const ColorReducer = (state = initialState, action)=>{
     const newState = {...state};
-    console.log('New State type ', typeof newState.color);
-    console.log('ADDING COLOR NEWSTATE....',newState);
+    const newColor = {newState, color:[newState.color, 'Black']}
+    console.log('Original State:',state)
+    console.log('Mutated State:',newColor)
+  //  newState.color.push("pink");
+   // console.log('Original State:',state)
+   // console.log('Mutated State:', newState)
     switch(action.type){
         case 'ADD_COLOR':
-           
-           return{
+          return{
             newState,
             color:[newState.color, action.payload]
             
            }
             //break;
         case 'REMOVE_COLOR':
-            console.log('Removing color');
+           // console.log('Removing color');
             let val = newState.color.flat(2);
-            console.log('NEWSTATEEE_COLOR_flat', val);
+           // console.log('NEWSTATEEE_COLOR_flat', val);
            // let val1 = val.flat();
            // console.log('NEWSTATEEE_COLOR_flat111', val1);
-            console.log('PAYLOAD', action.payload);
+           // console.log('PAYLOAD', action.payload);
             return{
                 newState,
-                //color:[newState.color, action.payload]
-               // let val = newState.color.flat();
                 color:[val.filter(value=>value!== action.payload)]
                             
                }
-               break;
+             
         default:
             return newState;    
     }
-   // return newState;
-   //console.log('NewState ',newState.color.favColors);
-    
+       
 }
 export default ColorReducer;
 

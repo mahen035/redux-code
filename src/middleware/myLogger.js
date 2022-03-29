@@ -1,10 +1,10 @@
 
 
 export const myLogger = store =>{
-    return nxt =>{
+    return next =>{
         return action =>{
             console.log('Middleware Ran..')
-            return nxt(action);
+            return next(action);
         }
     }
 }
