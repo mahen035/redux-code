@@ -14,13 +14,13 @@ import postReducer from './reducer/postReducer';
 import Posts from './component/Posts';
 import thunk from 'redux-thunk';
 
-//const store = createStore(ColorReducer, applyMiddleware(myLogger, myLogger2, logger));
+const store = createStore(ColorReducer, applyMiddleware(myLogger, myLogger2, logger));
 
-const store = createStore(postReducer);
+//const store = createStore(postReducer);
 console.log('Store created');
 ReactDOM.render(
   <Provider store ={store}>
-    <Posts />
+    <App />
   </Provider>,
   document.getElementById('root')
 );
