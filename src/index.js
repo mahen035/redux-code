@@ -7,14 +7,20 @@ import counterReducer from './reducer/CounterReducer';
 import ColorReducer from './reducer/ColorReducer';
 import { Provider } from 'react-redux';
 import { myLogger}  from './middleware/myLogger';
-
+import { myLogger2 } from './middleware/myLogger2';
+import logger from 'redux-logger';
 import reportWebVitals from './reportWebVitals';
+import postReducer from './reducer/postReducer';
+import Posts from './component/Posts';
+import thunk from 'redux-thunk';
 
-const store = createStore(ColorReducer);
+//const store = createStore(ColorReducer, applyMiddleware(myLogger, myLogger2, logger));
+
+const store = createStore(postReducer);
 console.log('Store created');
 ReactDOM.render(
   <Provider store ={store}>
-    <App />
+    <Posts />
   </Provider>,
   document.getElementById('root')
 );
