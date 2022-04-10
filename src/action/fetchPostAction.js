@@ -1,11 +1,14 @@
 import axios from "axios";
 
-export const fetchPostAction =  async () =>{
+export const fetchPostAction =  () =>{
 
-    const promise =   await axios.get("https://jsonplaceholder.typicode.com/posts");
-     return{
-         type: "FETCH_POSTS",
-         payload: promise.data
-     }
- } 
- 
+    return async(dispatch) =>{
+        const response =   await axios.get("https://jsonplaceholder.typicode.com/posts");
+        console.log(response.data)
+        dispatch({
+             type: "FETCH_POSTS",
+             payload: response.data
+        })
+    }
+
+}

@@ -14,7 +14,7 @@ function App(props) {
   const dispatch=useDispatch(); */
   let dispatch = useDispatch();
  const colVal = useSelector(state => state.color);
- console.log("COLVAL ", colVal.flat(2))
+ console.log("COLVAL ", colVal.flat(3))
   useEffect(() => {
       console.log(props);
   })

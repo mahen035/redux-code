@@ -6,13 +6,19 @@ import {useSelector} from 'react-redux';
 function Posts(props) {
 
     const dispatch = useDispatch();
+    const values = useSelector(state=>state)
+    const titles = values ? values.map((val)=>
+    <li key = {val.id}>{val.title}</li>) : "No data found"
     useEffect(() =>{
         dispatch(fetchPostAction());
 
     }, [])
     return (
         <div>
-            
+            <h1>Data from API call:</h1>
+            <p>
+                {titles}
+            </p>
         </div>
     );
 }

@@ -5,11 +5,11 @@ const initialState ={
 const ColorReducer = (state = initialState, action)=>{
     const newState = {...state};
     const newColor = {newState, color:[newState.color, 'Black']}
-    console.log('Original State:',state)
+     console.log('Original State:',state)
     console.log('Mutated State:',newColor)
-  //  newState.color.push("pink");
-   // console.log('Original State:',state)
-   // console.log('Mutated State:', newState)
+    //newState.color.push("pink");
+    //console.log('Original State:',state)
+    //log('Mutated State:', newState)
     switch(action.type){
         case 'ADD_COLOR':
           return{
@@ -20,7 +20,7 @@ const ColorReducer = (state = initialState, action)=>{
             //break;
         case 'REMOVE_COLOR':
            // console.log('Removing color');
-            let val = newState.color.flat(2);
+            let val = newState.color.flat(3);
            // console.log('NEWSTATEEE_COLOR_flat', val);
            // let val1 = val.flat();
            // console.log('NEWSTATEEE_COLOR_flat111', val1);

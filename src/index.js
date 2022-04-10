@@ -13,10 +13,13 @@ import reportWebVitals from './reportWebVitals';
 import postReducer from './reducer/postReducer';
 import Posts from './component/Posts';
 import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
-const store = createStore(ColorReducer, applyMiddleware(myLogger, myLogger2, logger));
+const devTools = composeWithDevTools(applyMiddleware(myLogger, myLogger2))
 
-//const store = createStore(postReducer);
+const store = createStore(ColorReducer, devTools);
+
+//const store = createStore(postReducer, applyMiddleware(thunk));
 console.log('Store created');
 ReactDOM.render(
   <Provider store ={store}>
